@@ -1,8 +1,52 @@
+
+// nav bar start
+var div1=document.createElement("div");
+div1.setAttribute("id","hgroup");
+var h1_ele=document.createElement("h1");
+var a_ele=document.createElement("a");
+a_ele.textContent="BASIC88";
+h1_ele.appendChild(a_ele)
+a_ele.setAttribute("href","#");
+var h2_ele=document.createElement("h2");
+h2_ele.textContent="Templates basic88";
+div1.appendChild(h1_ele);
+div1.appendChild(h2_ele);
+var nav_ele=document.createElement("nav");
+var ul_ele=document.createElement("ul");
+
+nav_data=["HOME","ABOUT","SERVICES","BLOG","CONTACT US"]
+
+
+for(var i=0;i<5;i++){
+  var li=document.createElement("li");
+  var a_ele2=document.createElement("a");
+  a_ele2.setAttribute("href","#");
+  a_ele2.textContent=nav_data[i];
+  if (i==4){
+      li.setAttribute("class","last");
+  }
+  li.appendChild(a_ele2);
+  ul_ele.appendChild(li);
+}
+nav_ele.appendChild(ul_ele);
+var k =document.getElementById("header");
+k.appendChild(div1);
+k.appendChild(nav_ele);
+// nav bar ending
+
+
+
 // slide show images start
+var slide_a_ele=document.createElement("a");
+var slide_img_ele=document.createElement("img");
+slide_a_ele.setAttribute("href","#");
+
 function changeImage()
 {
-    var img = document.getElementById("img");
-    img.src = images[x];
+    
+    slide_img_ele.src = images[x];
+    slide_img_ele.style.width="960px";
+    slide_img_ele.style.height="360px";
     x++;
 
     if(x >= images.length){
@@ -11,13 +55,17 @@ function changeImage()
 
     setTimeout("changeImage()", 500);
 }
+slide_a_ele.appendChild(slide_img_ele);
 
 var images = ["images/demo/img1.jpg","images/demo/img2.jpg","images/demo/img4.jpeg","images/demo/img1.jpg"];
 x = 0;
-setTimeout("changeImage()", 1000);
-// slide show images end
+document.getElementById("slider").appendChild(slide_a_ele);
+// setTimeout("changeImage()", 1000);
+changeImage()
+//  slide show images start
 
-// var images_data=["images/demo/img1.jpg","images/demo/img2.jpg","images/demo/img4.jpeg","images/demo/img1.jpg"];
+
+
 
 
 
@@ -60,44 +108,8 @@ for(var i=0;i<images_data.length;i++){
 // services ending
 
 
-// nav bar start
-var div1=document.createElement("div");
-div1.setAttribute("id","hgroup");
-var h1_ele=document.createElement("h1");
-var a_ele=document.createElement("a");
-a_ele.textContent="BASIC88";
-h1_ele.appendChild(a_ele)
-a_ele.setAttribute("href","#");
-var h2_ele=document.createElement("h2");
-h2_ele.textContent="Templates basic88";
-div1.appendChild(h1_ele);
-div1.appendChild(h2_ele);
-var nav_ele=document.createElement("nav");
-var ul_ele=document.createElement("ul");
 
-nav_data=["HOME","ABOUT","SERVICES","BLOG","CONTACT US"]
-
-
-for(var i=0;i<5;i++){
-  var li=document.createElement("li");
-  var a_ele2=document.createElement("a");
-  a_ele2.setAttribute("href","#");
-  a_ele2.textContent=nav_data[i];
-  if (i==4){
-      li.setAttribute("class","last");
-  }
-
-  li.appendChild(a_ele2);
-  ul_ele.appendChild(li);
-
-}
-nav_ele.appendChild(ul_ele);
-var k =document.getElementById("header");
-k.appendChild(div1);
-k.appendChild(nav_ele);
-// nav bar ending
-
-
+// intro starting
 var article2=document.createElement("article");
 var figure2=document.createElement("figure");
 article2.appendChild(figure2);
@@ -119,15 +131,15 @@ figure_caption2.appendChild(p2);
 figure_caption2.appendChild(p3);
 var footer2=document.createElement("footer");
 footer2.setAttribute("class","more");
-
 var a2=document.createElement("a");
 a2.setAttribute("href","#");
 a2.textContent="Read more";
 figure_caption2.appendChild(footer2);
 footer2.appendChild(a2);
 document.getElementById("intro").appendChild(article2);
+// intro ending 
 
-// nav bar code ending
+
 
 // footer code starting
 for(let i=0;i<4;i++){
@@ -140,10 +152,8 @@ for(let i=0;i<4;i++){
     h2.setAttribute("class","title");
     h2_ele2.textContent="text link";
     section_ele.appendChild(h2_ele2);
-
     var nav_ele2=document.createElement("nav");
     var ul_ele2=document.createElement("ul");
-
     for(var j=0;j<5;j++){
         var li_ele2=document.createElement("li");
         var a_ele3=document.createElement("a");
@@ -152,10 +162,8 @@ for(let i=0;i<4;i++){
         if (j==4){
             li_ele2.setAttribute("class","last");
         }
-
         li_ele2.appendChild(a_ele3);
         ul_ele2.appendChild(li_ele2);
-
       }
       nav_ele2.appendChild(ul_ele2);
       section_ele.appendChild(nav_ele2);

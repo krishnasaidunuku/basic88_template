@@ -37,14 +37,16 @@ k.appendChild(nav_ele);
 
 
 // slide show images start
+var slider=document.getElementById("slider");
 var slide_a_ele=document.createElement("a");
 var slide_img_ele=document.createElement("img");
 slide_a_ele.setAttribute("href","#");
-
+var t;
 function changeImage()
 {
-    
+
     slide_img_ele.src = images[x];
+    
     slide_img_ele.style.width="960px";
     slide_img_ele.style.height="360px";
     x++;
@@ -52,20 +54,28 @@ function changeImage()
     if(x >= images.length){
         x = 0;
     } 
+    
 
-    setTimeout("changeImage()", 500);
+     t=setTimeout("changeImage()", 500);
 }
 slide_a_ele.appendChild(slide_img_ele);
 
 var images = ["images/demo/img1.jpg","images/demo/img2.jpg","images/demo/img4.jpeg","images/demo/img1.jpg"];
 x = 0;
-document.getElementById("slider").appendChild(slide_a_ele);
-// setTimeout("changeImage()", 1000);
-changeImage()
+slider.appendChild(slide_a_ele);
+slider.setAttribute("onmouseover", "mouseover()");
+slider.setAttribute("onmouseout","mouseout()");
+
+t=setTimeout("changeImage()");
+
+function mouseover(){
+    clearTimeout(t);
+}
+function mouseout(){
+    t=setTimeout("changeImage()", 500);
+}
+// changeImage()
 //  slide show images start
-
-
-
 
 
 
